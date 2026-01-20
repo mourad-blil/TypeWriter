@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bubble.io Embed Example</title>
+</head>
+<body>
+  <h1>How to Embed in Bubble.io</h1>
+  
+  <h2>Method 1: HTML Element (Recommended)</h2>
+  <p>Add an HTML element in Bubble and paste this code:</p>
+  
+  <div style="background: #f4f4f4; padding: 20px; margin: 20px 0; border-radius: 8px;">
+    <pre><code>&lt;style&gt;
+  .typewriter-cursor::after {
+    content: var(--cursor-char, '|');
+    animation: typewriter-blink 0.7s step-end infinite;
+    margin-left: 2px;
+  }
+  
+  @keyframes typewriter-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  
+  .typewriter-container {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 24px;
+    min-height: 1.5em;
+    display: inline-block;
+  }
+&lt;/style&gt;
+
+&lt;div 
+  class="typewriter-container" 
+  data-typewriter
+  data-typewriter-texts="Welcome to our site!|We make amazing products|Join us today!"
+  data-typewriter-speed="100"
+  data-typewriter-pause="2000"&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+class Typewriter {
+  constructor(element, options = {}) {
+    this.element = typeof element === 'string' ? document.querySelector(element) : element;
+    if (!this.element) return;
+
+    this.options = {
+      texts: options.texts || ['Hello World!'],
+      typeSpeed: options.typeSpeed || 100,
+      deleteSpeed: options.deleteSpeed || 50,
+      pauseTime: options.pauseTime || 2000,
+      loop: options.loop !== undefined ? options.loop : true,
+      cursor: options.cursor !== undefined ? options.cursor : true,
+      cursorChar: options.cursorChar || '|',
+      startDelay: options.startDelay || 0,
+    };
+
+    this.textIndex = 0;
+    this.charIndex = 0;
+    this.isDeleting = false;
+    this.isRunning = false;
+    this.currentText = '';
+    
+    this.init();
+  }
+
+  init() {
+    if (this.options.cursor) {
+      this.element.classList.add('typewriter-cursor');
+      this.element.style.setProperty('--cursor-char', `"${this.options.cursorChar}"`);
+    }
+
+    if (this.options.startDelay > 0) {
+      setTimeout(() => this.start(), this.options.startDelay);
+    } else {
+      this.start();
+    }
+  }
+
+  start() {
+    if (this.isRunning) return;
+    this.isRunning = true;
+    this.type();
+  }
+
+  stop() {
+    this.isRunning = false;
+  }
+
+  type() {
+    if (!this.isRunning) return;
+
+    const currentFullText = this.options.texts[this.textIndex];
+    
+    if (this.isDeleting) {
+      this.currentText = currentFullText.substring(0, this.charIndex - 1);
+      this.charIndex--;
+    } else {
+      this.currentText = currentFullText.substring(0, this.charIndex + 1);
+      this.charIndex++;
+    }
+
+    this.element.textContent = this.currentText;
+
+    let typeDelay = this.isDeleting ? this.options.deleteSpeed : this.options.typeSpeed;
+    typeDelay += Math.random() * 50;
+
+    if (!this.isDeleting && this.charIndex === currentFullText.length) {
+      typeDelay = this.options.pauseTime;
+      
+      if (this.textIndex === this.options.texts.length - 1 && !this.options.loop) {
+        this.isRunning = false;
+        return;
+      }
+      
+      this.isDeleting = true;
+    } else if (this.isDeleting && this.charIndex === 0) {
+      this.isDeleting = false;
+      this.textIndex = (this.textIndex + 1) % this.options.texts.length;
+      typeDelay = 500;
+    }
+
+    setTimeout(() => this.type(), typeDelay);
+  }
+
+  updateTexts(texts) {
+    this.options.texts = texts;
+    this.textIndex = 0;
+    this.charIndex = 0;
+    this.isDeleting = false;
+  }
+
+  destroy() {
+    this.stop();
+    this.element.textContent = '';
+    this.element.classList.remove('typewriter-cursor');
+  }
+}
+
+// Auto-initialize
+function initTypewriters() {
+  const elements = document.querySelectorAll('[data-typewriter]');
+  
+  elements.forEach(element => {
+    const texts = element.dataset.typewriterTexts 
+      ? element.dataset.typewriterTexts.split('|') 
+      : ['Hello World!'];
+    
+    const options = {
+      texts: texts,
+      typeSpeed: parseInt(element.dataset.typewriterSpeed) || 100,
+      deleteSpeed: parseInt(element.dataset.typewriterDeleteSpeed) || 50,
+      pauseTime: parseInt(element.dataset.typewriterPause) || 2000,
+      loop: element.dataset.typewriterLoop !== 'false',
+      cursor: element.dataset.typewriterCursor !== 'false',
+      cursorChar: element.dataset.typewriterCursorChar || '|',
+      startDelay: parseInt(element.dataset.typewriterDelay) || 0
+    };
+
+    new Typewriter(element, options);
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initTypewriters);
+} else {
+  initTypewriters();
+}
+&lt;/script&gt;</code></pre>
+  </div>
+
+  <hr style="margin: 40px 0;">
+
+  <h2>Method 2: External Files (Page Header)</h2>
+  <p>If you host the files, add these to your Bubble page's HTML header settings:</p>
+  
+  <div style="background: #f4f4f4; padding: 20px; margin: 20px 0; border-radius: 8px;">
+    <pre><code>&lt;link rel="stylesheet" href="https://your-domain.com/typewriter.css"&gt;
+&lt;script src="https://your-domain.com/typewriter.js"&gt;&lt;/script&gt;</code></pre>
+  </div>
+
+  <p>Then add an HTML element in your page with:</p>
+  
+  <div style="background: #f4f4f4; padding: 20px; margin: 20px 0; border-radius: 8px;">
+    <pre><code>&lt;div 
+  class="typewriter-container" 
+  data-typewriter
+  data-typewriter-texts="Your text here|Multiple texts|Separated by pipes"
+  data-typewriter-speed="100"&gt;
+&lt;/div&gt;</code></pre>
+  </div>
+
+  <hr style="margin: 40px 0;">
+
+  <h2>Method 3: JavaScript API in Bubble Workflows</h2>
+  <p>First, add the typewriter code to your page header, then use workflows:</p>
+  
+  <div style="background: #f4f4f4; padding: 20px; margin: 20px 0; border-radius: 8px;">
+    <pre><code>// In an HTML element with id="my-typewriter"
+&lt;div id="my-typewriter"&gt;&lt;/div&gt;
+
+// In a "Run JavaScript" action in your workflow:
+const typewriter = new Typewriter('#my-typewriter', {
+  texts: ['Dynamic text from Bubble!', 'Update via workflows!'],
+  typeSpeed: 100,
+  loop: true
+});</code></pre>
+  </div>
+
+  <hr style="margin: 40px 0;">
+
+  <h2>Live Demo</h2>
+  <p>Here's the typewriter effect running on this page:</p>
+  
+  <style>
+    .typewriter-cursor::after {
+      content: var(--cursor-char, '|');
+      animation: typewriter-blink 0.7s step-end infinite;
+      margin-left: 2px;
+    }
+    
+    @keyframes typewriter-blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    
+    .typewriter-container {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 24px;
+      min-height: 1.5em;
+      display: inline-block;
+    }
+
+    .demo-box {
+      background: #e8f4ff;
+      padding: 30px;
+      border-radius: 8px;
+      margin: 20px 0;
+      text-align: center;
+    }
+  </style>
+
+  <div class="demo-box">
+    <div 
+      class="typewriter-container" 
+      data-typewriter
+      data-typewriter-texts="Perfect for Bubble.io!|Easy to embed|No dependencies|Fully customizable"
+      data-typewriter-speed="80"
+      data-typewriter-pause="2000"
+      style="color: #0066cc; font-weight: bold;">
+    </div>
+  </div>
+
+  <script src="typewriter.js"></script>
+</body>
+</html>

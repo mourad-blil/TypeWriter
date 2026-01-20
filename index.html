@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typewriter Effect - Demo</title>
+  <link rel="stylesheet" href="typewriter.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: white;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 48px;
+    }
+
+    .subtitle {
+      color: rgba(255, 255, 255, 0.9);
+      text-align: center;
+      margin-bottom: 60px;
+      font-size: 18px;
+    }
+
+    .demo-section {
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .demo-section h2 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .demo-section .description {
+      color: #666;
+      margin-bottom: 25px;
+      font-size: 14px;
+      font-style: italic;
+    }
+
+    .demo-box {
+      background: #f8f9fa;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      padding: 30px;
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .demo-box .typewriter-container {
+      font-size: 28px;
+      color: #667eea;
+      font-weight: 600;
+    }
+
+    .code-block {
+      background: #2d3748;
+      color: #e2e8f0;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px;
+      margin-top: 15px;
+    }
+
+    .code-block pre {
+      margin: 0;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background: #5568d3;
+    }
+
+    .btn.secondary {
+      background: #48bb78;
+    }
+
+    .btn.secondary:hover {
+      background: #38a169;
+    }
+
+    .btn.danger {
+      background: #f56565;
+    }
+
+    .btn.danger:hover {
+      background: #e53e3e;
+    }
+
+    footer {
+      text-align: center;
+      color: white;
+      margin-top: 60px;
+      padding: 20px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>⌨️ Typewriter Effect</h1>
+    <p class="subtitle">A lightweight, self-contained typewriter animation for your website</p>
+
+    <!-- Demo 1: Basic Usage -->
+    <div class="demo-section">
+      <h2>1. Basic Typewriter (HTML Data Attributes)</h2>
+      <p class="description">The simplest way to use - just add data attributes to any element</p>
+      
+      <div class="demo-box">
+        <div 
+          class="typewriter-container" 
+          data-typewriter
+          data-typewriter-texts="Hello World!|Welcome to Typewriter Effect|Easy to use and customize"
+          data-typewriter-speed="100"
+          data-typewriter-pause="2000">
+        </div>
+      </div>
+
+      <div class="code-block">
+        <pre>&lt;div data-typewriter
+     data-typewriter-texts="Hello World!|Welcome to Typewriter"
+     data-typewriter-speed="100"
+     data-typewriter-pause="2000"&gt;
+&lt;/div&gt;</pre>
+      </div>
+    </div>
+
+    <!-- Demo 2: Fast Typing -->
+    <div class="demo-section">
+      <h2>2. Fast Typing Speed</h2>
+      <p class="description">Adjust the speed for different effects</p>
+      
+      <div class="demo-box">
+        <div 
+          class="typewriter-container" 
+          data-typewriter
+          data-typewriter-texts="Lightning fast typing!|Watch this speed!|Super quick!"
+          data-typewriter-speed="30"
+          data-typewriter-delete-speed="20"
+          data-typewriter-pause="1500">
+        </div>
+      </div>
+
+      <div class="code-block">
+        <pre>&lt;div data-typewriter
+     data-typewriter-texts="Lightning fast!"
+     data-typewriter-speed="30"
+     data-typewriter-delete-speed="20"&gt;
+&lt;/div&gt;</pre>
+      </div>
+    </div>
+
+    <!-- Demo 3: Custom Cursor -->
+    <div class="demo-section">
+      <h2>3. Custom Cursor Character</h2>
+      <p class="description">Change the cursor to any character you like</p>
+      
+      <div class="demo-box">
+        <div 
+          class="typewriter-container" 
+          data-typewriter
+          data-typewriter-texts="Custom cursor ▊|Try different styles!|Be creative!"
+          data-typewriter-cursor-char="▊"
+          data-typewriter-speed="80">
+        </div>
+      </div>
+
+      <div class="code-block">
+        <pre>&lt;div data-typewriter
+     data-typewriter-texts="Custom cursor!"
+     data-typewriter-cursor-char="▊"&gt;
+&lt;/div&gt;</pre>
+      </div>
+    </div>
+
+    <!-- Demo 4: No Loop -->
+    <div class="demo-section">
+      <h2>4. Single Type (No Loop)</h2>
+      <p class="description">Type once and stop</p>
+      
+      <div class="demo-box">
+        <div 
+          class="typewriter-container" 
+          data-typewriter
+          data-typewriter-texts="This types once and stops"
+          data-typewriter-loop="false"
+          data-typewriter-speed="80">
+        </div>
+      </div>
+
+      <div class="code-block">
+        <pre>&lt;div data-typewriter
+     data-typewriter-texts="Type once and stop"
+     data-typewriter-loop="false"&gt;
+&lt;/div&gt;</pre>
+      </div>
+    </div>
+
+    <!-- Demo 5: JavaScript API -->
+    <div class="demo-section">
+      <h2>5. JavaScript API (Programmatic Control)</h2>
+      <p class="description">Full control via JavaScript for advanced usage</p>
+      
+      <div class="demo-box">
+        <div id="js-typewriter" class="typewriter-container"></div>
+      </div>
+
+      <div class="controls">
+        <button class="btn" onclick="startDemo5()">Start</button>
+        <button class="btn danger" onclick="stopDemo5()">Stop</button>
+        <button class="btn secondary" onclick="updateDemo5()">Change Text</button>
+      </div>
+
+      <div class="code-block">
+        <pre>// Create a new typewriter instance
+const typewriter = new Typewriter('#element', {
+  texts: ['Hello', 'World'],
+  typeSpeed: 100,
+  deleteSpeed: 50,
+  pauseTime: 2000,
+  loop: true,
+  cursor: true,
+  cursorChar: '|'
+});
+
+// Control methods
+typewriter.stop();
+typewriter.start();
+typewriter.updateTexts(['New text']);
+typewriter.destroy();</pre>
+      </div>
+    </div>
+
+    <!-- Demo 6: No Cursor -->
+    <div class="demo-section">
+      <h2>6. Without Cursor</h2>
+      <p class="description">Clean look without the blinking cursor</p>
+      
+      <div class="demo-box">
+        <div 
+          class="typewriter-container" 
+          data-typewriter
+          data-typewriter-texts="No cursor here|Just smooth typing|Clean and simple"
+          data-typewriter-cursor="false"
+          data-typewriter-speed="90">
+        </div>
+      </div>
+
+      <div class="code-block">
+        <pre>&lt;div data-typewriter
+     data-typewriter-texts="No cursor"
+     data-typewriter-cursor="false"&gt;
+&lt;/div&gt;</pre>
+      </div>
+    </div>
+
+    <footer>
+      <p>Made with ❤️ for embedding anywhere | <a href="README.md">View Documentation</a></p>
+    </footer>
+  </div>
+
+  <script src="typewriter.js"></script>
+  <script>
+    // Demo 5: JavaScript API example
+    let demo5Instance;
+
+    function startDemo5() {
+      if (demo5Instance) {
+        demo5Instance.destroy();
+      }
+      demo5Instance = new Typewriter('#js-typewriter', {
+        texts: ['Controlled via JavaScript!', 'Start, stop, or update!', 'Full API control!'],
+        typeSpeed: 80,
+        deleteSpeed: 40,
+        pauseTime: 2000,
+        loop: true
+      });
+    }
+
+    function stopDemo5() {
+      if (demo5Instance) {
+        demo5Instance.stop();
+      }
+    }
+
+    function updateDemo5() {
+      if (demo5Instance) {
+        demo5Instance.updateTexts(['New text added!', 'You can change it anytime!', 'Pretty cool, right?']);
+      }
+    }
+
+    // Auto-start demo 5
+    startDemo5();
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+/**
+ * Typewriter Effect Styles
+ * Minimal CSS for the typewriter cursor animation
+ */
+
+.typewriter-cursor::after {
+  content: var(--cursor-char, '|');
+  animation: typewriter-blink 0.7s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes typewriter-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Optional: Base styling for typewriter containers */
+.typewriter-container {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 24px;
+  min-height: 1.5em;
+  display: inline-block;
+}
+
+/* Smooth typing appearance */
+.typewriter-cursor {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Optional: Different cursor styles */
+.typewriter-cursor.cursor-block::after {
+  background-color: currentColor;
+  color: transparent;
+  content: '\00a0';
+  margin-left: 0;
+  animation: typewriter-blink-block 0.7s step-end infinite;
+}
+
+@keyframes typewriter-blink-block {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.typewriter-cursor.cursor-underline::after {
+  content: '_';
+  animation: typewriter-blink 0.7s step-end infinite;
+}
+
+/* No cursor variation */
+.typewriter-cursor.no-cursor::after {
+  display: none;
+}

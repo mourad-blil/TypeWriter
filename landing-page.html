@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Construct CRM - Landing Page</title>
+  <link rel="stylesheet" href="typewriter.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .hero-section {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #000;
+    }
+
+    .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .background-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 1444px;
+      width: 90%;
+      margin: 0 auto;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero-title {
+      font-size: 54px;
+      font-weight: 800;
+      line-height: 68px;
+      margin-bottom: 14px;
+      text-transform: capitalize;
+      transition: all 0.3s ease;
+    }
+
+    .hero-title .highlight {
+      color: #ffca42;
+    }
+
+    .hero-title .typewriter-line {
+      display: block;
+      min-height: 68px;
+    }
+
+    /* Main typewriter headline container */
+    #hero-headline {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 54px;
+      line-height: 68px;
+      color: #fff;
+      text-align: center;
+      min-height: 136px;
+      display: block;
+      transition: font-family 0.5s ease;
+      padding: 0 20px;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      white-space: normal;
+      overflow-wrap: break-word;
+      word-break: normal;
+      hyphens: auto;
+    }
+
+    /* Terminal style for second text */
+    #hero-headline.terminal-mode {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* Regular mode styling */
+    #hero-headline.regular-mode {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    /* Yellow highlights for specific words */
+    #hero-headline .highlight {
+      color: #ffca42;
+    }
+
+    .hero-subtitle {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.5;
+      color: #e4e4e4;
+      max-width: 1302px;
+      margin: 0 auto;
+    }
+
+    /* Typewriter styling for this page */
+    .typewriter-container {
+      display: inline-block;
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      color: inherit;
+    }
+
+    .typewriter-container.typewriter-cursor::after {
+      color: #ffca42;
+      font-weight: 800;
+    }
+
+    /* Responsive design */
+    @media (max-width: 1400px) {
+      #hero-headline {
+        font-size: 48px;
+        line-height: 60px;
+        min-height: 120px;
+      }
+
+      .hero-subtitle {
+        font-size: 22px;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      #hero-headline {
+        font-size: 42px;
+        line-height: 54px;
+        min-height: 108px;
+      }
+
+      .hero-subtitle {
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      #hero-headline {
+        font-size: 36px;
+        line-height: 46px;
+        min-height: 92px;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+        padding: 0 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #hero-headline {
+        font-size: 28px;
+        line-height: 38px;
+        min-height: 76px;
+      }
+
+      .hero-subtitle {
+        font-size: 16px;
+      }
+
+      .hero-content {
+        width: 95%;
+      }
+    }
+
+    @media (max-width: 576px) {
+      #hero-headline {
+        font-size: 22px;
+        line-height: 32px;
+        min-height: 64px;
+        padding: 0 15px;
+      }
+
+      #hero-headline.terminal-mode {
+        font-size: 20px;
+        line-height: 30px;
+      }
+
+      .hero-subtitle {
+        font-size: 14px;
+        padding: 0 15px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      #hero-headline {
+        font-size: 18px;
+        line-height: 28px;
+        min-height: 56px;
+        padding: 0 10px;
+      }
+
+      #hero-headline.terminal-mode {
+        font-size: 16px;
+        line-height: 26px;
+      }
+
+      .hero-subtitle {
+        font-size: 13px;
+      }
+    }
+
+    /* Optional: Add a subtle overlay for better text readability */
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <section class="hero-section">
+    <!-- Background Image -->
+    <div class="background-image">
+      <img src="http://localhost:3845/assets/9f9cebbefb96ad69cfa05fe3a13042b394f7d04c.png" alt="Background">
+    </div>
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <h1 id="hero-headline"></h1>
+
+      <p class="hero-subtitle">
+        Construct CRM is an AI-powered end-to-end customer lifecycle software platform for distributors.
+      </p>
+    </div>
+  </section>
+
+  <script src="typewriter.js"></script>
+  <script>
+    // Custom animated headline transition with looping and smart HTML highlighting
+    (function() {
+      const headlineElement = document.getElementById('hero-headline');
+      
+      // Plain text version for character counting
+      const originalTextPlain = 'The Global Leader in Building Products and Materials AI and eCommerce';
+      
+      // Define words to highlight
+      const highlightWords = ['Leader', 'AI', 'eCommerce'];
+      
+      // Calculate highlight ranges dynamically
+      const highlights = [];
+      highlightWords.forEach(word => {
+        const index = originalTextPlain.indexOf(word);
+        if (index !== -1) {
+          highlights.push({
+            start: index,
+            end: index + word.length,
+            word: word
+          });
+        }
+      });
+      
+      // New terminal-style text
+      const terminalText = 'Delete Your SaaS 🤝 Bundle Your AI';
+      
+      // Function to apply highlights to a substring
+      function applyHighlights(text, length) {
+        // Build an array to track which characters should be highlighted
+        const charHighlights = new Array(length).fill(false);
+        
+        // Mark characters that should be highlighted
+        highlights.forEach(highlight => {
+          for (let i = highlight.start; i < Math.min(highlight.end, length); i++) {
+            charHighlights[i] = true;
+          }
+        });
+        
+        // Build the result string with spans
+        let result = '';
+        let i = 0;
+        
+        while (i < length) {
+          if (charHighlights[i]) {
+            // Start of a highlighted section
+            result += '<span class="highlight">';
+            while (i < length && charHighlights[i]) {
+              const char = text[i];
+              // Preserve spaces explicitly
+              result += (char === ' ') ? ' ' : char;
+              i++;
+            }
+            result += '</span>';
+          } else {
+            // Regular character - preserve spaces explicitly
+            const char = text[i];
+            result += (char === ' ') ? ' ' : char;
+            i++;
+          }
+        }
+        
+        return result;
+      }
+      
+      // Create custom typewriter with transition logic
+      let currentPhase = 1; // 1 = typing original, 2 = deleting original, 3 = typing terminal, 4 = deleting terminal
+      
+      const headlineTypewriter = new Typewriter(headlineElement, {
+        texts: [originalTextPlain, terminalText],
+        typeSpeed: 80,
+        deleteSpeed: 40,
+        pauseTime: 2000,
+        loop: true,
+        cursor: true,
+        cursorChar: '|',
+        startDelay: 500,
+        
+        // Callback when typing happens
+        onType: function(text) {
+          // Switch to appropriate font style based on which text we're typing
+          if (currentPhase === 3) {
+            // Typing terminal text
+            headlineElement.classList.remove('regular-mode');
+            headlineElement.classList.add('terminal-mode');
+          } else if (currentPhase === 1) {
+            // Typing original text
+            headlineElement.classList.remove('terminal-mode');
+            headlineElement.classList.add('regular-mode');
+          }
+        },
+        
+        // Callback when deleting happens
+        onDelete: function(text) {
+          if (text === '') {
+            // Finished deleting
+            if (currentPhase === 2) {
+              // Finished deleting original text, prepare for terminal text
+              currentPhase = 3;
+              setTimeout(() => {
+                headlineElement.classList.remove('regular-mode');
+                headlineElement.classList.add('terminal-mode');
+              }, 200);
+            } else if (currentPhase === 4) {
+              // Finished deleting terminal text, prepare to restart with original
+              currentPhase = 1;
+              setTimeout(() => {
+                headlineElement.classList.remove('terminal-mode');
+                headlineElement.classList.add('regular-mode');
+              }, 200);
+            }
+          }
+        }
+      });
+      
+      // Monitor the typewriter to detect phase changes and apply smart HTML rendering
+      const originalType = headlineTypewriter.type.bind(headlineTypewriter);
+      headlineTypewriter.type = function() {
+        // Detect phase transitions
+        if (this.textIndex === 0 && this.isDeleting && currentPhase === 1) {
+          currentPhase = 2;
+        } else if (this.textIndex === 1 && this.isDeleting && currentPhase === 3) {
+          currentPhase = 4;
+        }
+        
+        // Call original type method
+        originalType();
+        
+        // Apply smart HTML rendering for the original text
+        if (this.textIndex === 0) {
+          // For the original text, apply highlights intelligently
+          const currentLength = this.currentText.length;
+          const htmlText = applyHighlights(originalTextPlain, currentLength);
+          this.element.innerHTML = htmlText;
+        } else {
+          // For terminal text, use plain text
+          this.element.textContent = this.currentText;
+        }
+      };
+    })();
+  </script>
+</body>
+</html>
