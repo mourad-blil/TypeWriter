@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Typewriter Effect - Demo</title>
+  <title>Construct CRM - Landing Page</title>
   <link rel="stylesheet" href="typewriter.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -13,332 +16,391 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .hero-section {
+      position: relative;
+      width: 100%;
       min-height: 100vh;
-      padding: 40px 20px;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    h1 {
-      color: white;
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 48px;
-    }
-
-    .subtitle {
-      color: rgba(255, 255, 255, 0.9);
-      text-align: center;
-      margin-bottom: 60px;
-      font-size: 18px;
-    }
-
-    .demo-section {
-      background: white;
-      border-radius: 12px;
-      padding: 40px;
-      margin-bottom: 30px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    }
-
-    .demo-section h2 {
-      color: #333;
-      margin-bottom: 10px;
-      font-size: 24px;
-    }
-
-    .demo-section .description {
-      color: #666;
-      margin-bottom: 25px;
-      font-size: 14px;
-      font-style: italic;
-    }
-
-    .demo-box {
-      background: #f8f9fa;
-      border: 2px solid #e9ecef;
-      border-radius: 8px;
-      padding: 30px;
-      min-height: 80px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
+      background-color: #000;
     }
 
-    .demo-box .typewriter-container {
-      font-size: 28px;
-      color: #667eea;
-      font-weight: 600;
+    .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
     }
 
-    .code-block {
-      background: #2d3748;
-      color: #e2e8f0;
-      padding: 20px;
-      border-radius: 8px;
-      overflow-x: auto;
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 14px;
-      margin-top: 15px;
+    .background-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
     }
 
-    .code-block pre {
-      margin: 0;
-    }
-
-    .controls {
-      display: flex;
-      gap: 10px;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      background: #667eea;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 600;
-      transition: background 0.2s;
-    }
-
-    .btn:hover {
-      background: #5568d3;
-    }
-
-    .btn.secondary {
-      background: #48bb78;
-    }
-
-    .btn.secondary:hover {
-      background: #38a169;
-    }
-
-    .btn.danger {
-      background: #f56565;
-    }
-
-    .btn.danger:hover {
-      background: #e53e3e;
-    }
-
-    footer {
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 1444px;
+      width: 90%;
+      margin: 0 auto;
       text-align: center;
-      color: white;
-      margin-top: 60px;
-      padding: 20px;
+      padding: 40px 20px;
     }
 
-    footer a {
-      color: white;
-      text-decoration: underline;
+    .hero-title {
+      font-size: 54px;
+      font-weight: 800;
+      line-height: 68px;
+      margin-bottom: 14px;
+      text-transform: capitalize;
+      transition: all 0.3s ease;
+    }
+
+    .hero-title .highlight {
+      color: #ffca42;
+    }
+
+    .hero-title .typewriter-line {
+      display: block;
+      min-height: 68px;
+    }
+
+    /* Main typewriter headline container */
+    #hero-headline {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 54px;
+      line-height: 68px;
+      color: #fff;
+      text-align: center;
+      min-height: 136px;
+      display: block;
+      transition: font-family 0.5s ease;
+      padding: 0 20px;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      white-space: normal;
+      overflow-wrap: break-word;
+      word-break: normal;
+      hyphens: auto;
+    }
+
+    /* Terminal style for second text */
+    #hero-headline.terminal-mode {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* Regular mode styling */
+    #hero-headline.regular-mode {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    /* Yellow highlights for specific words */
+    #hero-headline .highlight {
+      color: #ffca42;
+    }
+
+    .hero-subtitle {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.5;
+      color: #e4e4e4;
+      max-width: 1302px;
+      margin: 0 auto;
+    }
+
+    /* Typewriter styling for this page */
+    .typewriter-container {
+      display: inline-block;
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      color: inherit;
+    }
+
+    .typewriter-container.typewriter-cursor::after {
+      color: #ffca42;
+      font-weight: 800;
+    }
+
+    /* Responsive design */
+    @media (max-width: 1400px) {
+      #hero-headline {
+        font-size: 48px;
+        line-height: 60px;
+        min-height: 120px;
+      }
+
+      .hero-subtitle {
+        font-size: 22px;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      #hero-headline {
+        font-size: 42px;
+        line-height: 54px;
+        min-height: 108px;
+      }
+
+      .hero-subtitle {
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      #hero-headline {
+        font-size: 36px;
+        line-height: 46px;
+        min-height: 92px;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+        padding: 0 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #hero-headline {
+        font-size: 28px;
+        line-height: 38px;
+        min-height: 76px;
+      }
+
+      .hero-subtitle {
+        font-size: 16px;
+      }
+
+      .hero-content {
+        width: 95%;
+      }
+    }
+
+    @media (max-width: 576px) {
+      #hero-headline {
+        font-size: 22px;
+        line-height: 32px;
+        min-height: 64px;
+        padding: 0 15px;
+      }
+
+      #hero-headline.terminal-mode {
+        font-size: 20px;
+        line-height: 30px;
+      }
+
+      .hero-subtitle {
+        font-size: 14px;
+        padding: 0 15px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      #hero-headline {
+        font-size: 18px;
+        line-height: 28px;
+        min-height: 56px;
+        padding: 0 10px;
+      }
+
+      #hero-headline.terminal-mode {
+        font-size: 16px;
+        line-height: 26px;
+      }
+
+      .hero-subtitle {
+        font-size: 13px;
+      }
+    }
+
+    /* Optional: Add a subtle overlay for better text readability */
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>⌨️ Typewriter Effect</h1>
-    <p class="subtitle">A lightweight, self-contained typewriter animation for your website</p>
-
-    <!-- Demo 1: Basic Usage -->
-    <div class="demo-section">
-      <h2>1. Basic Typewriter (HTML Data Attributes)</h2>
-      <p class="description">The simplest way to use - just add data attributes to any element</p>
-      
-      <div class="demo-box">
-        <div 
-          class="typewriter-container" 
-          data-typewriter
-          data-typewriter-texts="Hello World!|Welcome to Typewriter Effect|Easy to use and customize"
-          data-typewriter-speed="100"
-          data-typewriter-pause="2000">
-        </div>
-      </div>
-
-      <div class="code-block">
-        <pre>&lt;div data-typewriter
-     data-typewriter-texts="Hello World!|Welcome to Typewriter"
-     data-typewriter-speed="100"
-     data-typewriter-pause="2000"&gt;
-&lt;/div&gt;</pre>
-      </div>
+  <section class="hero-section">
+    <!-- Background Image -->
+    <div class="background-image">
+      <img src="http://localhost:3845/assets/9f9cebbefb96ad69cfa05fe3a13042b394f7d04c.png" alt="Background">
     </div>
 
-    <!-- Demo 2: Fast Typing -->
-    <div class="demo-section">
-      <h2>2. Fast Typing Speed</h2>
-      <p class="description">Adjust the speed for different effects</p>
-      
-      <div class="demo-box">
-        <div 
-          class="typewriter-container" 
-          data-typewriter
-          data-typewriter-texts="Lightning fast typing!|Watch this speed!|Super quick!"
-          data-typewriter-speed="30"
-          data-typewriter-delete-speed="20"
-          data-typewriter-pause="1500">
-        </div>
-      </div>
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <h1 id="hero-headline"></h1>
 
-      <div class="code-block">
-        <pre>&lt;div data-typewriter
-     data-typewriter-texts="Lightning fast!"
-     data-typewriter-speed="30"
-     data-typewriter-delete-speed="20"&gt;
-&lt;/div&gt;</pre>
-      </div>
+      <p class="hero-subtitle">
+        Construct CRM is an AI-powered end-to-end customer lifecycle software platform for distributors.
+      </p>
     </div>
-
-    <!-- Demo 3: Custom Cursor -->
-    <div class="demo-section">
-      <h2>3. Custom Cursor Character</h2>
-      <p class="description">Change the cursor to any character you like</p>
-      
-      <div class="demo-box">
-        <div 
-          class="typewriter-container" 
-          data-typewriter
-          data-typewriter-texts="Custom cursor ▊|Try different styles!|Be creative!"
-          data-typewriter-cursor-char="▊"
-          data-typewriter-speed="80">
-        </div>
-      </div>
-
-      <div class="code-block">
-        <pre>&lt;div data-typewriter
-     data-typewriter-texts="Custom cursor!"
-     data-typewriter-cursor-char="▊"&gt;
-&lt;/div&gt;</pre>
-      </div>
-    </div>
-
-    <!-- Demo 4: No Loop -->
-    <div class="demo-section">
-      <h2>4. Single Type (No Loop)</h2>
-      <p class="description">Type once and stop</p>
-      
-      <div class="demo-box">
-        <div 
-          class="typewriter-container" 
-          data-typewriter
-          data-typewriter-texts="This types once and stops"
-          data-typewriter-loop="false"
-          data-typewriter-speed="80">
-        </div>
-      </div>
-
-      <div class="code-block">
-        <pre>&lt;div data-typewriter
-     data-typewriter-texts="Type once and stop"
-     data-typewriter-loop="false"&gt;
-&lt;/div&gt;</pre>
-      </div>
-    </div>
-
-    <!-- Demo 5: JavaScript API -->
-    <div class="demo-section">
-      <h2>5. JavaScript API (Programmatic Control)</h2>
-      <p class="description">Full control via JavaScript for advanced usage</p>
-      
-      <div class="demo-box">
-        <div id="js-typewriter" class="typewriter-container"></div>
-      </div>
-
-      <div class="controls">
-        <button class="btn" onclick="startDemo5()">Start</button>
-        <button class="btn danger" onclick="stopDemo5()">Stop</button>
-        <button class="btn secondary" onclick="updateDemo5()">Change Text</button>
-      </div>
-
-      <div class="code-block">
-        <pre>// Create a new typewriter instance
-const typewriter = new Typewriter('#element', {
-  texts: ['Hello', 'World'],
-  typeSpeed: 100,
-  deleteSpeed: 50,
-  pauseTime: 2000,
-  loop: true,
-  cursor: true,
-  cursorChar: '|'
-});
-
-// Control methods
-typewriter.stop();
-typewriter.start();
-typewriter.updateTexts(['New text']);
-typewriter.destroy();</pre>
-      </div>
-    </div>
-
-    <!-- Demo 6: No Cursor -->
-    <div class="demo-section">
-      <h2>6. Without Cursor</h2>
-      <p class="description">Clean look without the blinking cursor</p>
-      
-      <div class="demo-box">
-        <div 
-          class="typewriter-container" 
-          data-typewriter
-          data-typewriter-texts="No cursor here|Just smooth typing|Clean and simple"
-          data-typewriter-cursor="false"
-          data-typewriter-speed="90">
-        </div>
-      </div>
-
-      <div class="code-block">
-        <pre>&lt;div data-typewriter
-     data-typewriter-texts="No cursor"
-     data-typewriter-cursor="false"&gt;
-&lt;/div&gt;</pre>
-      </div>
-    </div>
-
-    <footer>
-      <p>Made with ❤️ for embedding anywhere | <a href="README.md">View Documentation</a></p>
-    </footer>
-  </div>
+  </section>
 
   <script src="typewriter.js"></script>
   <script>
-    // Demo 5: JavaScript API example
-    let demo5Instance;
-
-    function startDemo5() {
-      if (demo5Instance) {
-        demo5Instance.destroy();
+    // Custom animated headline transition with looping and smart HTML highlighting
+    (function() {
+      const headlineElement = document.getElementById('hero-headline');
+      
+      // Plain text version for character counting
+      const originalTextPlain = 'The Global Leader in Building Products and Materials AI and eCommerce';
+      
+      // Define words to highlight
+      const highlightWords = ['Leader', 'AI', 'eCommerce'];
+      
+      // Calculate highlight ranges dynamically
+      const highlights = [];
+      highlightWords.forEach(word => {
+        const index = originalTextPlain.indexOf(word);
+        if (index !== -1) {
+          highlights.push({
+            start: index,
+            end: index + word.length,
+            word: word
+          });
+        }
+      });
+      
+      // New terminal-style text
+      const terminalText = 'Delete Your SaaS 🤝 Bundle Your AI';
+      
+      // Function to apply highlights to a substring
+      function applyHighlights(text, length) {
+        // Build an array to track which characters should be highlighted
+        const charHighlights = new Array(length).fill(false);
+        
+        // Mark characters that should be highlighted
+        highlights.forEach(highlight => {
+          for (let i = highlight.start; i < Math.min(highlight.end, length); i++) {
+            charHighlights[i] = true;
+          }
+        });
+        
+        // Build the result string with spans
+        let result = '';
+        let i = 0;
+        
+        while (i < length) {
+          if (charHighlights[i]) {
+            // Start of a highlighted section
+            result += '<span class="highlight">';
+            while (i < length && charHighlights[i]) {
+              const char = text[i];
+              // Preserve spaces explicitly
+              result += (char === ' ') ? ' ' : char;
+              i++;
+            }
+            result += '</span>';
+          } else {
+            // Regular character - preserve spaces explicitly
+            const char = text[i];
+            result += (char === ' ') ? ' ' : char;
+            i++;
+          }
+        }
+        
+        return result;
       }
-      demo5Instance = new Typewriter('#js-typewriter', {
-        texts: ['Controlled via JavaScript!', 'Start, stop, or update!', 'Full API control!'],
+      
+      // Create custom typewriter with transition logic
+      let currentPhase = 1; // 1 = typing original, 2 = deleting original, 3 = typing terminal, 4 = deleting terminal
+      
+      const headlineTypewriter = new Typewriter(headlineElement, {
+        texts: [originalTextPlain, terminalText],
         typeSpeed: 80,
         deleteSpeed: 40,
         pauseTime: 2000,
-        loop: true
+        loop: true,
+        cursor: true,
+        cursorChar: '|',
+        startDelay: 500,
+        
+        // Callback when typing happens
+        onType: function(text) {
+          // Switch to appropriate font style based on which text we're typing
+          if (currentPhase === 3) {
+            // Typing terminal text
+            headlineElement.classList.remove('regular-mode');
+            headlineElement.classList.add('terminal-mode');
+          } else if (currentPhase === 1) {
+            // Typing original text
+            headlineElement.classList.remove('terminal-mode');
+            headlineElement.classList.add('regular-mode');
+          }
+        },
+        
+        // Callback when deleting happens
+        onDelete: function(text) {
+          if (text === '') {
+            // Finished deleting
+            if (currentPhase === 2) {
+              // Finished deleting original text, prepare for terminal text
+              currentPhase = 3;
+              setTimeout(() => {
+                headlineElement.classList.remove('regular-mode');
+                headlineElement.classList.add('terminal-mode');
+              }, 200);
+            } else if (currentPhase === 4) {
+              // Finished deleting terminal text, prepare to restart with original
+              currentPhase = 1;
+              setTimeout(() => {
+                headlineElement.classList.remove('terminal-mode');
+                headlineElement.classList.add('regular-mode');
+              }, 200);
+            }
+          }
+        }
       });
-    }
-
-    function stopDemo5() {
-      if (demo5Instance) {
-        demo5Instance.stop();
-      }
-    }
-
-    function updateDemo5() {
-      if (demo5Instance) {
-        demo5Instance.updateTexts(['New text added!', 'You can change it anytime!', 'Pretty cool, right?']);
-      }
-    }
-
-    // Auto-start demo 5
-    startDemo5();
+      
+      // Monitor the typewriter to detect phase changes and apply smart HTML rendering
+      const originalType = headlineTypewriter.type.bind(headlineTypewriter);
+      headlineTypewriter.type = function() {
+        // Detect phase transitions
+        if (this.textIndex === 0 && this.isDeleting && currentPhase === 1) {
+          currentPhase = 2;
+        } else if (this.textIndex === 1 && this.isDeleting && currentPhase === 3) {
+          currentPhase = 4;
+        }
+        
+        // Call original type method
+        originalType();
+        
+        // Apply smart HTML rendering for the original text
+        if (this.textIndex === 0) {
+          // For the original text, apply highlights intelligently
+          const currentLength = this.currentText.length;
+          const htmlText = applyHighlights(originalTextPlain, currentLength);
+          this.element.innerHTML = htmlText;
+        } else {
+          // For terminal text, use plain text
+          this.element.textContent = this.currentText;
+        }
+      };
+    })();
   </script>
 </body>
 </html>

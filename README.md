@@ -18,10 +18,17 @@ A lightweight, self-contained typewriter animation effect perfect for embedding 
 CCRM Typing/
 ├── typewriter.js          # Main JavaScript file
 ├── typewriter.css         # Styling and cursor animation
-├── index.html            # Full demo with examples
+├── index.html            # Hero landing page (GitHub Pages homepage)
+├── demo/                 # Demo and documentation page
+│   └── index.html
 ├── bubble-embed.html     # Bubble.io embedding guide
 └── README.md            # This file
 ```
+
+## 🌐 GitHub Pages
+
+- Homepage (hero landing): `/index.html`
+- Demo + docs: `/demo/`
 
 ## 🚀 Quick Start
 
